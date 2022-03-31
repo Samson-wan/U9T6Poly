@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+
+public class ShippingTest
+{
+  public static void main(String[] args)
+  {
+    // ---- TESTING PART A ----
+    System.out.println("---- TESTING PART A ----");
+    ShippingItem myItem = new ShippingItem(10);
+    System.out.println(myItem.getCost());
+
+    // ---- TESTING PART B ----
+    System.out.println("---- TESTING PART B ----");
+    ShippingItem insItem = new InsuredShippingItem(10, 50);
+    System.out.println(insItem instanceof InsuredShippingItem);
+    
+    // ---- TESTING PART C ----
+    System.out.println("---- TESTING PART C ----");
+    ShippingItem newItem = new InsuredShippingItem(10, 50);
+    System.out.println(newItem.getCost());
+    
+    // ---- TESTING PART D ----
+    System.out.println("---- TESTING PART D ----");
+    ArrayList<ShippingItem> itemList = new ArrayList<>();
+    double totalCost = 0;
+    itemList.add(new ShippingItem(10));
+    itemList.add(new InsuredShippingItem(20, 50));
+    itemList.add(new ShippingItem(30));
+    itemList.add(new InsuredShippingItem(50, 70));
+    
+    /* MISSING CODE, TO BE WRITTEN IN PART D */
+    for(int i = 0; i < itemList.size(); i++){
+      if(itemList.get(i) instanceof InsuredShippingItem) {
+        totalCost += itemList.get(i).getCost() + 30;
+      }
+      else{
+        totalCost += itemList.get(i).getCost();
+      }
+    }
+    System.out.println(totalCost);
+  }
+}
